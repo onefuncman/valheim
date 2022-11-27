@@ -6,6 +6,6 @@ export class ValheimStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    new ValheimServer(this, 'Valheim', { cpu: 4096, memoryLimitMiB: 8192, dnsConfig: { hostzedZone: "Z03299692N7Q40ZRFDKBD", domainName: "valheim.uphawk.systems" } });
+    new ValheimServer(this, 'Valheim', { cpu: 4096, memoryLimitMiB: 8192, dnsConfig: { hostzedZone: "arn:aws:route53:::hostedzone/Z03299692N7Q40ZRFDKBD", domainName: "valheim.uphawk.systems" } });
   }
 }

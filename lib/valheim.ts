@@ -162,11 +162,6 @@ export class ValheimServer extends Construct {
       dnsConfig: props.dnsConfig
     });
 
-    // see https://github.com/aws/aws-cdk/issues/15366
-    // Add back the old method of specifying capacity providers
-    const cfnCluster = cluster.node.defaultChild as ecs.CfnCluster;
-    cfnCluster.capacityProviders = ['FARGATE', 'FARGATE_SPOT'];
-
     //Create our ECS TaskDefinition using our cpu and memory limits
     const taskDef = new ecs.FargateTaskDefinition(this, 'TaskDef', {
       cpu: this.cpu,
